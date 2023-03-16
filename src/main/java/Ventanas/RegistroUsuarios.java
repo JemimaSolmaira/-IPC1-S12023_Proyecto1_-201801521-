@@ -5,6 +5,8 @@ import java.awt.event.ItemEvent;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -300,6 +302,49 @@ public class RegistroUsuarios extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private static boolean contrSegura(String contrasena) {
+
+    
+        boolean mayuscula = false;
+        boolean numero = false;
+        boolean letraOsimbolo = false;
+        boolean especial = false;
+
+        //caracteres especiales
+        Pattern special = Pattern.compile("[?!¡@¿.,´)]");
+        Matcher hasSpecial = special.matcher(contrasena);
+
+        int i;
+        char l;
+
+        for (i = 0; i < contrasena.length(); i++) {
+            l = contrasena.charAt(i);
+
+            if (Character.isDigit(l)) {//mínimo un número. 
+                numero = true;
+            }
+            if (Character.isLetter(l)) {//contiene letras o símbolos (?!¡@¿.,´)
+                letraOsimbolo = true;
+            }
+            if (Character.isUpperCase(l)) { // mínimo una letra mayúscula 
+                mayuscula = true;
+            }
+            if (hasSpecial.find()) { //Valida "caracteres especiales".       
+                especial = true;
+            }
+        }
+
+        if (numero == true && mayuscula == true && letraOsimbolo == true && especial == true) {
+            return true;
+        } else {
+            return false;
+        }
+     
+}
+    
+    
+    
+    
     private void NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NombreActionPerformed
@@ -310,7 +355,7 @@ public class RegistroUsuarios extends javax.swing.JFrame {
 
     private void AgregarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarUsuarioActionPerformed
         String us = usuario.getText();
-  
+  String passw =pass.getText();
         Set<UsuariosDatos> Users = new HashSet<UsuariosDatos>();
         Users = usuarios.getUsuarios();
         boolean encontrado = false;
@@ -328,9 +373,18 @@ public class RegistroUsuarios extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "El Usuario ya esta registrado");
         
         }else {
+        }
         
-        UsuariosDatos per = new UsuariosDatos(us,
-                pass.getText() );
+        if(!contrSegura(passw)){
+        
+            JOptionPane.showMessageDialog(rootPane, "Contraseña Insegura"+
+                    "\n"+ " " + "\n"+
+                    "agregar numeros, Mayusculas, minusculas, y caracteres especiales");
+        
+        }else{
+         
+            UsuariosDatos per = new UsuariosDatos(us,
+                 passw);
         
         
         
@@ -341,8 +395,10 @@ public class RegistroUsuarios extends javax.swing.JFrame {
         
         dispose();
         
+        
         }
         
+  
   
     }//GEN-LAST:event_AgregarUsuarioActionPerformed
 
