@@ -10,6 +10,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 import proyecto1.Datos;
 import proyecto1.Datosenvios;
 import proyecto1.Envios;
@@ -41,6 +42,7 @@ public class InterfazUsuario extends javax.swing.JFrame {
     private Compra Compra ;
     
     public InterfazUsuario() {
+        tema();
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -1304,6 +1306,24 @@ public class InterfazUsuario extends javax.swing.JFrame {
        }
        }
        
+       
+       private void tema(){
+     try {
+           
+         UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Loggin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Loggin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Loggin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Loggin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+    
+    
+    }
        
     /**
      * @param args the command line arguments

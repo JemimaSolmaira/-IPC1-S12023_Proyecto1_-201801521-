@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 import proyecto1.Datosenvios;
 import proyecto1.Envios;
 import proyecto1.Facturacion;
@@ -25,6 +26,7 @@ public class Compra extends javax.swing.JFrame {
     DefaultListModel Datoscotizados = new DefaultListModel();
     
     public Compra() {
+        tema();
         initComponents();
         setLocationRelativeTo(null);
         this.elijatarjeta.setVisible(false);
@@ -264,6 +266,26 @@ public class Compra extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    private void tema(){
+     try {
+           
+         UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Loggin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Loggin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Loggin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Loggin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+    
+    
+    }
+    
+    
     private void RealizarenvioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RealizarenvioActionPerformed
         String dir = this.exacta1.getText();
         String dir2 = this.exacta2.getText();

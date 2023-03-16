@@ -1,8 +1,6 @@
 
 package Ventanas;
 import java.awt.Image;
-import java.awt.event.ItemEvent;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Matcher;
@@ -11,8 +9,8 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import proyecto1.Datos;
 import proyecto1.Kioscos;
 import proyecto1.Usuarios;
 import proyecto1.UsuariosDatos;
@@ -25,6 +23,7 @@ public class RegistroUsuarios extends javax.swing.JFrame {
     private UsuariosDatos usuariodatos;
     
     public RegistroUsuarios(UsuariosDatos us) {
+        tema();
         initComponents();
         setLocationRelativeTo(null);
         this.usuariodatos = us;
@@ -483,40 +482,23 @@ public class RegistroUsuarios extends javax.swing.JFrame {
     return usuariodatos;
     }
     
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//////        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//////        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//////         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//////         */
-//////        try {
-//////            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//////                if ("Nimbus".equals(info.getName())) {
-//////                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//////                    break;
-//////                }
-//////            }
-//////        } catch (ClassNotFoundException ex) {
-//////            java.util.logging.Logger.getLogger(RegistroUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//////        } catch (InstantiationException ex) {
-//////            java.util.logging.Logger.getLogger(RegistroUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//////        } catch (IllegalAccessException ex) {
-//////            java.util.logging.Logger.getLogger(RegistroUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//////        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//////            java.util.logging.Logger.getLogger(RegistroUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//////        }
-//////        //</editor-fold>
-//
-//        /* Create and display the form */
-//       java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new RegistroUsuarios().setVisible(true);
-//          }
-//       });
-//   }
+private void tema(){
+     try {
+           
+         UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Loggin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Loggin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Loggin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Loggin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+    
+    
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarUsuario;

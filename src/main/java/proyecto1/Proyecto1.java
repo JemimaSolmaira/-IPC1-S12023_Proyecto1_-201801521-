@@ -20,7 +20,9 @@ public class Proyecto1 {
     public static Usuarios usuarios= new Usuarios();
     
     public static void main (String[] args){
-     Loggin ventana = new Loggin ();
+     
+        
+        Loggin ventana = new Loggin ();
     ventana.setVisible(true);
    
 
