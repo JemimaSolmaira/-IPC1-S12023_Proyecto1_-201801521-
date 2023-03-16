@@ -159,7 +159,7 @@ public class Loggin extends javax.swing.JFrame {
          } else {
                   }
  
-             if (!usuario.equals("Jemi")|| !pass.equals("123")){
+             if (!usuario.equals("ipc1_201801521@ipc1delivery.com")|| !pass.equals("201801521")){
                if(entrar){
                    //interfazusuario = new InterfazUsuario();
                    interfazusuario.setVisible(true);
